@@ -2,19 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
     <meta
-      name="description"
-      content="Web site created using create-react-app"
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <meta name="theme-color" content="#000000" />
     <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap"
+      rel="stylesheet"
+    />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -26,9 +29,262 @@
     -->
     <title>React App</title>
   </head>
+
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root" class="app-container"></div>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      html {
+        background-color: #f9f9f9;
+      }
+
+      .app-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .app {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        height: 500px;
+        background-color: #ddd;
+        border-radius: 8px;
+        box-shadow: 0px 0px 0px 10px rgb(40, 40, 40);
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      .app::after {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+        width: 211px;
+        height: 30px;
+        background: url(https://tienda.mercadona.es/v427/static/media/logo-horizontal.fdae39d8.svg);
+        background-repeat: no-repeat;
+        transform: scale(0.5);
+        transform-origin: 100% 100%;
+      }
+
+      /* DISPLAY */
+
+      .display {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        width: 100%;
+        height: 110px;
+        padding: 16px 32px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background-color: rgb(60, 60, 60);
+      }
+
+      .display label {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background-color: transparent;
+        border: 0;
+        color: white;
+      }
+
+      .display input {
+        width: inherit;
+        padding: 0 4px;
+        margin-top: 4px;
+        background-color: transparent;
+        border: 0;
+        border-radius: 8px;
+        color: white;
+        font-size: 3rem;
+        text-align: right;
+      }
+
+      .display input:focus {
+        background-color: rgba(0, 0, 0, 0.4);
+        outline: none;
+      }
+
+      .display label:nth-child(1)::after {
+        content: "kg";
+        position: absolute;
+        top: 0px;
+        right: 8px;
+        opacity: 0.5;
+      }
+
+      .display label:nth-child(2)::after {
+        content: "€/kg";
+        position: absolute;
+        top: 0px;
+        right: 8px;
+        opacity: 0.5;
+      }
+
+      .display label:nth-child(3)::after {
+        content: "€";
+        position: absolute;
+        top: 0px;
+        right: 8px;
+        opacity: 0.5;
+      }
+
+      /* CONTROLS */
+
+      .controls {
+        display: flex;
+        width: 100%;
+        height: 390px;
+      }
+
+      .controls > .products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        max-width: 370px;
+        height: 100%;
+        border-bottom-left-radius: 8px;
+        border-top: 1px solid rgb(120, 120, 120);
+        overflow: hidden;
+      }
+
+      .controls > .products button {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        font-size: 2rem;
+        color: rgb(180, 180, 180);
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border: 1px solid rgb(200, 200, 200);
+        background-color: white;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .controls > .products img {
+        width: 100%;
+        transform: scale(0.8);
+        transition: 0.2s;
+      }
+
+      .controls > .products button:hover img {
+        transform: scale(0.9);
+      }
+
+      .controls > .products button :active img {
+        transform: scale(0.95);
+      }
+
+      .controls > .products button::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: "";
+        background-color: rgba(0, 0, 0, 0);
+        transition: 0.3s;
+      }
+
+      .controls > .products button:hover::after {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      .controls > .products button:active::after {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      /* PRODUCT LIST */
+
+      .controls > .sidebar {
+        flex: 1;
+        height: 100%;
+        padding-bottom: 32px;
+        background-color: rgb(220, 220, 220);
+        border-top: 1px solid rgb(120, 120, 120);
+        border-bottom-right-radius: 8px;
+        text-align: center;
+        overflow: scroll;
+      }
+
+      .controls > .sidebar > div:nth-child(1) {
+        display: flex;
+        margin-bottom: 32px;
+      }
+
+      .controls > .sidebar button {
+        flex: 1;
+        height: 64px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(200, 200, 200);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .controls > .sidebar button:hover {
+        background-color: rgb(240, 240, 240);
+      }
+
+      .controls > .sidebar button:active {
+        background-color: rgb(230, 230, 230);
+      }
+
+      .controls > .sidebar > div:nth-child(2) {
+        flex: 1;
+        font-weight: bold;
+        padding-bottom: 16px;
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+      }
+
+      .controls > .sidebar > ul {
+        font-size: 0.75rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .controls > .sidebar > ul > li {
+        list-style-type: none;
+        padding: 8px 0;
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+      }
+
+      .controls > .sidebar > ul > li:nth-child(2n + 1) {
+        background-color: rgba(0, 0, 0, 0.03);
+      }
+
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+    </style>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

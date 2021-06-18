@@ -1,0 +1,56 @@
+[
+  {
+    "id": "3819",
+    "image": "https://prod-mercadona.imgix.net/images/686b751a3e806d7775c5675942b8a2f4.jpg?fit=crop&h=300&w=300",
+    "name": "Plátano",
+    "price": 1.69
+  },
+  {
+    "id": "3235",
+    "image": "https://prod-mercadona.imgix.net/images/0e0431fbcd08dac4b7df7dd034760193.jpg?fit=crop&h=300&w=300",
+    "name": "Naranja",
+    "price": 1.55
+  },
+  {
+    "id": "3321",
+    "image": "https://prod-mercadona.imgix.net/images/527c0a13ecf06d5097438cd2e8a9ef07.jpg?fit=crop&h=300&w=300",
+    "name": "Uva",
+    "price": 4.49
+  },
+  {
+    "id": "3505",
+    "image": "https://prod-mercadona.imgix.net/images/6f968b5212959c76552ae95c4fd8b619.jpg?fit=crop&h=300&w=300",
+    "name": "Sandía",
+    "price": 0.93
+  },
+  {
+    "id": "3506",
+    "image": "https://prod-mercadona.imgix.net/images/2d034c1b80642d033f7b5aecd3fb8269.jpg?fit=crop&h=300&w=300",
+    "name": "Melón",
+    "price": 1.23
+  },
+  {
+    "id": "3820",
+    "image": "https://prod-mercadona.imgix.net/images/32214f2eedbb801a0275c14de2fc7ff6.jpg?fit=crop&h=300&w=300",
+    "name": "Kiwi",
+    "price": 3.99
+  },
+  {
+    "id": "3904",
+    "image": "https://prod-mercadona.imgix.net/images/a0f47f3e94ae33737bc5705e9fdc395e.jpg?fit=crop&h=300&w=300",
+    "name": "Breva",
+    "price": 5.99
+  },
+  {
+    "id": "3830",
+    "image": "https://prod-mercadona.imgix.net/images/5bdb23b103ea75a34562a3bdf877024b.jpg?fit=crop&h=300&w=300",
+    "name": "Aguacate",
+    "price": 4.39
+  },
+  {
+    "id": "3050",
+    "image": "https://prod-mercadona.imgix.net/images/c80c68c2129b94e788b8e03270c8bfdb.jpg?fit=crop&h=300&w=300",
+    "name": "Mango",
+    "price": 2.35
+  }
+]
