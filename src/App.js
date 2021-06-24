@@ -1,11 +1,15 @@
 import { useState } from "react";
 import products from "./products.json";
 
-const App = () => {
-  const [price, setPrice] = useState(0);
+const EMPTY = "";
+const NO_ERROR = false;
 
-  function handlePriceChange(event) {
-    setPrice(event.target.value);
+const App = () => {
+  const [error, setError] = useState(NO_ERROR);
+  const [weight, setWeight] = useState(EMPTY);
+
+  function handleWeightChange(event) {
+    setWeight(event.target.value);
   }
 
   return (
@@ -13,7 +17,14 @@ const App = () => {
       <div className="display">
         <label>
           <span>Peso:</span>
-          <input type="number" step="any" min="0" placeholder="0,000" />
+          <input
+            type="number"
+            step="any"
+            min="0"
+            placeholder="0,000"
+            value={weight}
+            onChange={handleWeightChange}
+          />
         </label>
         <label>
           <span>Precio:</span>
@@ -22,8 +33,9 @@ const App = () => {
             step="any"
             min="0"
             placeholder="0,000"
-            value={price}
-            onChange={handlePriceChange}
+            readOnly={true}
+            disabled={true}
+            value={EMPTY}
           />
         </label>
         <label>
@@ -45,12 +57,11 @@ const App = () => {
           <div>
             <button>Calcular</button>
           </div>
-          <div>Total - 0,000€</div>
-          <ul>
-            <li>Plátano - 2,570€</li>
-          </ul>
         </div>
       </div>
+      { error &&
+        <div className="error">Error</div>
+      }
     </div>
   );
 };

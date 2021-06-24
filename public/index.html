@@ -157,7 +157,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         width: 100%;
-        max-width: 370px;
+        max-width: 372px;
         height: 100%;
         border-bottom-left-radius: 8px;
         border-top: 1px solid rgb(120, 120, 120);
@@ -224,7 +224,6 @@
         border-top: 1px solid rgb(120, 120, 120);
         border-bottom-right-radius: 8px;
         text-align: center;
-        overflow: scroll;
       }
 
       .controls > .sidebar > div:nth-child(1) {
@@ -250,11 +249,14 @@
         background-color: rgb(230, 230, 230);
       }
 
-      .controls > .sidebar > div:nth-child(2) {
-        flex: 1;
-        font-weight: bold;
-        padding-bottom: 16px;
-        border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+      .error {
+        position: absolute;
+        padding: 4px 4rem;
+        background-color: #c71818c4;
+        border-radius: 8px;
+        color: white;
+        left: 50%;
+        transform: translate(-50%, 2px);
       }
 
       .controls > .sidebar > ul {
