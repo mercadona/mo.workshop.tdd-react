@@ -58,19 +58,18 @@ it.skip("should be able to select a fruit and see its price", () => {
   expect(priceInput).toHaveValue(0.93)
 });
 
-it.skip("should calculate the weight price manually", () => {
+it.skip("should calculate the weight price with the product", async () => {
   render(<App />);
 
-  const weightInput = screen.getByLabelText("Peso:")
-  const priceInput = screen.getByLabelText("Precio:")
-  userEvent.type(weightInput, "2")
-  userEvent.type(priceInput, "5")
-  userEvent.click(screen.getByText("Calcular"))
-  const totalInput = screen.getByLabelText("Total:")
+  const weightInput = screen.getByLabelText("Peso:");
+  const bananaButton = screen.getByLabelText("Plátano");
+  const calculateButton = screen.getByText("Calcular");
+  userEvent.type(weightInput, "2");
+  userEvent.click(bananaButton);
+  userEvent.click(calculateButton);
 
-  expect(weightInput).toHaveValue(2)
-  expect(priceInput).toHaveValue(5)
-  expect(totalInput).toHaveValue(10)
+  const totalInput = screen.getByLabelText("Total:");
+  expect(totalInput).toHaveValue(3.38);
 });
 
 it.skip("should see an error if there is not price", () => {
@@ -101,9 +100,6 @@ it.skip("should clear the error when select a fruit", () => {
   render(<App />);
 
   userEvent.click(screen.getByText("Calcular"))
-
-  expect(screen.getByText("Error")).toBeInTheDocument()
-
   userEvent.click(screen.getByLabelText("Sandía"))
 
   expect(screen.queryByText("Error")).not.toBeInTheDocument()
@@ -115,9 +111,10 @@ it.skip("should clear the input values", async () => {
   const weightInput = screen.getByLabelText("Peso:");
   const priceInput = screen.getByLabelText("Precio:");
   const calculateButton = screen.getByText("Calcular");
+  const bananaButton = screen.getByLabelText("Plátano");
   const clearButton = screen.getByText("Limpiar");
   userEvent.type(weightInput, "2");
-  userEvent.type(priceInput, "5");
+  userEvent.click(bananaButton);
   userEvent.click(calculateButton);
   userEvent.click(clearButton);
 

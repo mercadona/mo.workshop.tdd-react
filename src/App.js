@@ -12,10 +12,6 @@ const App = () => {
     setWeight(event.target.value);
   }
 
-  function handlePriceChange(event) {
-
-  }
-
   return (
     <div className="app">
       <div className="display">
@@ -38,8 +34,8 @@ const App = () => {
             min="0"
             placeholder="0,000"
             readOnly={true}
+            disabled={true}
             value={EMPTY}
-            onChange={handlePriceChange}
           />
         </label>
         <label>
@@ -61,11 +57,11 @@ const App = () => {
           <div>
             <button>Calcular</button>
           </div>
-          { error &&
-            <div>Error</div>
-          }
         </div>
       </div>
+      { error &&
+        <div className="error">Error</div>
+      }
     </div>
   );
 };
