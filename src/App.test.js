@@ -120,7 +120,7 @@ it.skip("should clear the input values", async () => {
   expect(totalInput).toHaveValue(0);
 });
 
-it.skip("should add the product weight to the list", async () => {
+it.skip("should add the product info to the sidebar", async () => {
   render(<App />);
 
   const weightInput = screen.getByLabelText("Peso:");
@@ -130,11 +130,26 @@ it.skip("should add the product weight to the list", async () => {
   userEvent.click(bananaButton);
   userEvent.click(calculateButton);
 
-  const item = screen.getByRole("listitem");
-  expect(item).toHaveTextContent("Plátano - 3.38 €");
+  const sidebar = screen.getByTestId('sidebar')
+  expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
 });
 
-it.skip("should display the total price of the purchase", async () => {
+it.skip("should create a list with the weighed products in the sidebar", async () => {
+  render(<App />);
+
+  const weightInput = screen.getByLabelText("Peso:");
+  const bananaButton = screen.getByLabelText("Plátano");
+  const calculateButton = screen.getByText("Calcular");
+  userEvent.type(weightInput, "2");
+  userEvent.click(bananaButton);
+  userEvent.click(calculateButton);
+
+  const sidebar = screen.getByTestId('sidebar')
+  expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
+  expect(sidebar).toHaveTextContent("Sandía - 3.72 €");
+});
+
+it.skip("should display the total price of all the weighed products", async () => {
   render(<App />);
 
   const weightInput = screen.getByLabelText("Peso:");
@@ -148,10 +163,9 @@ it.skip("should display the total price of the purchase", async () => {
   userEvent.click(watermelonButton);
   userEvent.click(addToListButton);
 
-  const [firstItem, secondItem] = screen.getAllByRole("listitem");
-  expect(firstItem).toHaveTextContent("Plátano - 3.38 €");
-  expect(secondItem).toHaveTextContent("Sandía - 3.72 €");
-  expect(screen.getByText("Total - 7.1 €")).toBeInTheDocument();
+  const sidebar = screen.getByTestId('sidebar')
+  expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
+  expect(sidebar).toHaveTextContent("Total - 7.1 €");
 });
 
 it.skip("should be able to clean the purchase", async () => {
