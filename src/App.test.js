@@ -53,8 +53,8 @@ it.skip("should be able to select a fruit and see its price", () => {
   render(<App />);
 
   userEvent.click(screen.getByLabelText("Sandía"));
-  const priceInput = screen.getByLabelText("Precio:");
 
+  const priceInput = screen.getByLabelText("Precio:");
   expect(priceInput).toHaveValue(0.93);
 });
 
