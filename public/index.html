@@ -228,7 +228,6 @@
 
       .controls > .sidebar > div:nth-child(1) {
         display: flex;
-        margin-bottom: 32px;
       }
 
       .controls > .sidebar button {
@@ -257,6 +256,14 @@
         color: white;
         left: 50%;
         transform: translate(-50%, 2px);
+      }
+
+      .controls > .sidebar > div:not(:first-child) {
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        padding: 16px 0;
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
       }
 
       .controls > .sidebar > ul {

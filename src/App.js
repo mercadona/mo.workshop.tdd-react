@@ -1,7 +1,7 @@
 import { useState } from "react";
 import products from "./products.json";
 
-const EMPTY = "";
+const EMPTY = 0;
 const NO_ERROR = false;
 
 const App = () => {
