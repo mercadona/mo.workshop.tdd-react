@@ -61,3 +61,9 @@ npm start
 ```
 
 ## Ejercicio
+
+El objetivo del ejercicio es implementar una versión web de una balanza de frutas como la que te encontrarías en tu supermercado favorito 😉 La única limitación es que el peso lo tenemos que introducir a mano en un _input_.
+
+En `src/App.js` encontrarás el punto de partida. Aquí escribiremos todo el código de la aplicación (aunque si quieres puedes crear componentes y módulos).
+
+En `src/App.test.js` encontrarás una _suite_ de tests con especificaciones para todas las funcionalidades de la aplicación. Cada bloque _test_ describe una funcionalidad específica.
