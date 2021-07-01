@@ -58,7 +58,7 @@ it.skip("should be able to select a fruit and see its price", () => {
   expect(priceInput).toHaveValue(0.93)
 });
 
-it.skip("should calculate the weight price with the product", async () => {
+it.skip("should calculate the total", async () => {
   render(<App />);
 
   const weightInput = screen.getByLabelText("Peso:");
@@ -72,28 +72,24 @@ it.skip("should calculate the weight price with the product", async () => {
   expect(totalInput).toHaveValue(3.38);
 });
 
-it.skip("should see an error if there is not price", () => {
+it.skip("should see an error when you calculate the total without the price", () => {
   render(<App />);
 
   const weightInput = screen.getByLabelText("Peso:");
   userEvent.type(weightInput, "2");
   userEvent.click(screen.getByText("Calcular"));
-  const totalInput = screen.getByLabelText("Total:");
 
   expect(screen.getByText("Error")).toBeInTheDocument();
-  expect(totalInput).not.toHaveValue(0);
 });
 
 it.skip("should see an error if there is not weight", () => {
   render(<App />);
 
-  const priceInput = screen.getByLabelText("Precio:")
-  userEvent.type(priceInput, "5")
+  const bananaButton = screen.getByLabelText("Plátano");
+  userEvent.click(bananaButton);
   userEvent.click(screen.getByText("Calcular"))
-  const totalInput = screen.getByLabelText("Total:")
 
   expect(screen.getByText("Error")).toBeInTheDocument()
-  expect(totalInput).not.toHaveValue(0)
 });
 
 it.skip("should clear the error when select a fruit", () => {
@@ -135,7 +131,7 @@ it.skip("should add the product weight to the list", async () => {
   userEvent.click(calculateButton);
 
   const item = screen.getByRole("listitem");
-  expect(item).toHaveTextContent("Plátano - 3.380 €");
+  expect(item).toHaveTextContent("Plátano - 3.38 €");
 });
 
 it.skip("should display the total price of the purchase", async () => {
@@ -144,7 +140,7 @@ it.skip("should display the total price of the purchase", async () => {
   const weightInput = screen.getByLabelText("Peso:");
   const bananaButton = screen.getByLabelText("Plátano");
   const watermelonButton = screen.getByLabelText("Sandía");
-  const addToListButton = screen.getByText("Añadir");
+  const addToListButton = screen.getByText("Calcular");
   userEvent.type(weightInput, "2");
   userEvent.click(bananaButton);
   userEvent.click(addToListButton);
@@ -153,9 +149,9 @@ it.skip("should display the total price of the purchase", async () => {
   userEvent.click(addToListButton);
 
   const [firstItem, secondItem] = screen.getAllByRole("listitem");
-  expect(firstItem).toHaveTextContent("Plátano - 3.380€");
-  expect(secondItem).toHaveTextContent("Sandía - 3.160€");
-  expect(screen.getByText("Total - 6.540€")).toBeInTheDocument();
+  expect(firstItem).toHaveTextContent("Plátano - 3.38 €");
+  expect(secondItem).toHaveTextContent("Sandía - 3.72 €");
+  expect(screen.getByText("Total - 7.1 €")).toBeInTheDocument();
 });
 
 it.skip("should be able to clean the purchase", async () => {
