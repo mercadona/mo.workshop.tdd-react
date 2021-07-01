@@ -52,10 +52,10 @@ it("should be able to introduce a weight", () => {
 it.skip("should be able to select a fruit and see its price", () => {
   render(<App />);
 
-  userEvent.click(screen.getByLabelText("Sandía"))
-  const priceInput = screen.getByLabelText("Precio:")
+  userEvent.click(screen.getByLabelText("Sandía"));
+  const priceInput = screen.getByLabelText("Precio:");
 
-  expect(priceInput).toHaveValue(0.93)
+  expect(priceInput).toHaveValue(0.93);
 });
 
 it.skip("should calculate the total", async () => {
@@ -87,18 +87,18 @@ it.skip("should see an error if there is not weight", () => {
 
   const bananaButton = screen.getByLabelText("Plátano");
   userEvent.click(bananaButton);
-  userEvent.click(screen.getByText("Calcular"))
+  userEvent.click(screen.getByText("Calcular"));
 
-  expect(screen.getByText("Error")).toBeInTheDocument()
+  expect(screen.getByText("Error")).toBeInTheDocument();
 });
 
 it.skip("should clear the error when select a fruit", () => {
   render(<App />);
 
-  userEvent.click(screen.getByText("Calcular"))
-  userEvent.click(screen.getByLabelText("Sandía"))
+  userEvent.click(screen.getByText("Calcular"));
+  userEvent.click(screen.getByLabelText("Sandía"));
 
-  expect(screen.queryByText("Error")).not.toBeInTheDocument()
+  expect(screen.queryByText("Error")).not.toBeInTheDocument();
 });
 
 it.skip("should clear the input values", async () => {
@@ -130,7 +130,7 @@ it.skip("should add the product info to the sidebar", async () => {
   userEvent.click(bananaButton);
   userEvent.click(calculateButton);
 
-  const sidebar = screen.getByTestId('sidebar')
+  const sidebar = screen.getByTestId("sidebar");
   expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
 });
 
@@ -144,7 +144,7 @@ it.skip("should create a list with the weighed products in the sidebar", async (
   userEvent.click(bananaButton);
   userEvent.click(calculateButton);
 
-  const sidebar = screen.getByTestId('sidebar')
+  const sidebar = screen.getByTestId("sidebar");
   expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
   expect(sidebar).toHaveTextContent("Sandía - 3.72 €");
 });
@@ -163,7 +163,7 @@ it.skip("should display the total price of all the weighed products", async () =
   userEvent.click(watermelonButton);
   userEvent.click(addToListButton);
 
-  const sidebar = screen.getByTestId('sidebar')
+  const sidebar = screen.getByTestId("sidebar");
   expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
   expect(sidebar).toHaveTextContent("Total - 7.1 €");
 });
