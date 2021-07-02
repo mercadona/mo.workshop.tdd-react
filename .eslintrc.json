@@ -22,6 +22,7 @@
     "rules": {
         "semi": ["error", "always"],
         "quotes": ["error", "double"],
+        "no-unused-vars": 1,
         "react/react-in-jsx-scope": "off"
     }
 }
