@@ -62,7 +62,7 @@ it.skip("should be able to select a fruit and see its price", () => {
   expect(priceInput).toHaveValue(0.93);
 });
 
-it.skip("should calculate the total", async () => {
+it.skip("should calculate the total", () => {
   render(<App />);
 
   // Weigh the banana
@@ -115,7 +115,7 @@ it.skip("should clear the error when select a fruit", () => {
   expect(screen.queryByText("Error")).not.toBeInTheDocument();
 });
 
-it.skip("should clear the input values", async () => {
+it.skip("should clear the input values", () => {
   render(<App />);
 
   // Weigh the banana
@@ -140,7 +140,7 @@ it.skip("should clear the input values", async () => {
   expect(totalInput).toHaveValue(0);
 });
 
-it.skip("should add the product info to the sidebar", async () => {
+it.skip("should add the product total to the sidebar", () => {
   render(<App />);
 
   // Weigh the banana
@@ -158,7 +158,7 @@ it.skip("should add the product info to the sidebar", async () => {
   expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
 });
 
-it.skip("should create a list with the weighed products in the sidebar", async () => {
+it.skip("should create a list with the weighed products in the sidebar", () => {
   render(<App />);
 
   // Weigh the banana
@@ -169,6 +169,14 @@ it.skip("should create a list with the weighed products in the sidebar", async (
   userEvent.click(bananaButton);
   // Clicks on the calculate button
   const calculateButton = screen.getByText("Calcular");
+  userEvent.click(calculateButton);
+  // Weigh the watermelon
+  userEvent.clear(weightInput);
+  userEvent.type(weightInput, "4");
+  // Clicks on the watermelon button
+  const watermelonButton = screen.getByLabelText("Sandía");
+  userEvent.click(watermelonButton);
+  // Clicks on the calculate button
   userEvent.click(calculateButton);
 
   // Gets the sidebar
@@ -177,7 +185,7 @@ it.skip("should create a list with the weighed products in the sidebar", async (
   expect(sidebar).toHaveTextContent("Sandía - 3.72 €");
 });
 
-it.skip("should display the total price of all the weighed products", async () => {
+it.skip("should display the total price of all the weighed products", () => {
   render(<App />);
 
   // Weigh the banana
@@ -190,6 +198,7 @@ it.skip("should display the total price of all the weighed products", async () =
   const calculateButton = screen.getByText("Calcular");
   userEvent.click(calculateButton);
   // Weigh the watermelon
+  userEvent.clear(weightInput);
   userEvent.type(weightInput, "4");
   // Clicks on the watermelon button
   const watermelonButton = screen.getByLabelText("Sandía");
@@ -203,6 +212,6 @@ it.skip("should display the total price of all the weighed products", async () =
   expect(sidebar).toHaveTextContent("Total - 7.1 €");
 });
 
-it.skip("should be able to clean the purchase", async () => {
+it.skip("should be able to clean the purchase", () => {
 
 });
