@@ -47,13 +47,13 @@ const App = () => {
         <div className="products">
           {products.map((product) => {
             return (
-              <button key={product.id} aria-label={product.name}>
+              <button key={product.id} aria-label={product.name} value={product.price}>
                 <img src={product.image} alt="" />
               </button>
             );
           })}
         </div>
-        <div className="sidebar">
+        <div className="sidebar" data-testid="sidebar">
           <div>
             <button>Calcular</button>
           </div>
