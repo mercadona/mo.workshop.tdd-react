@@ -92,6 +92,17 @@ it.skip("should see an error when you calculate the total without the price", ()
   expect(screen.getByText("Error")).toBeInTheDocument();
 });
 
+it.skip("should clear the error when select a fruit", () => {
+  render(<App />);
+
+  // Clicks on the calculate button
+  userEvent.click(screen.getByText("Calcular"));
+  // Clicks on the watermelon button
+  userEvent.click(screen.getByLabelText("Sandía"));
+
+  expect(screen.queryByText("Error")).not.toBeInTheDocument();
+});
+
 it.skip("should see an error if there is not weight", () => {
   render(<App />);
 
@@ -102,17 +113,6 @@ it.skip("should see an error if there is not weight", () => {
   userEvent.click(screen.getByText("Calcular"));
 
   expect(screen.getByText("Error")).toBeInTheDocument();
-});
-
-it.skip("should clear the error when select a fruit", () => {
-  render(<App />);
-
-  // Clicks on the calculate button
-  userEvent.click(screen.getByText("Calcular"));
-  // Clicks on the watermelon button
-  userEvent.click(screen.getByLabelText("Sandía"));
-
-  expect(screen.queryByText("Error")).not.toBeInTheDocument();
 });
 
 it.skip("should clear the input values", () => {
@@ -140,7 +140,80 @@ it.skip("should clear the input values", () => {
   expect(totalInput).toHaveValue(0);
 });
 
-it.skip("should add the product total to the sidebar", () => {
+it.skip("should add the last weighed price in the sidebar", () => {
+  render(<App />);
+
+  // Weigh the banana
+  const weightInput = screen.getByLabelText("Peso:");
+  userEvent.type(weightInput, "2");
+  // Clicks on the banana button
+  const bananaButton = screen.getByLabelText("Plátano");
+  userEvent.click(bananaButton);
+  // Clicks on the calculate button
+  const calculateButton = screen.getByText("Calcular");
+  userEvent.click(calculateButton);
+
+  // Gets the sidebar
+  const sidebar = screen.getByTestId("sidebar");
+  expect(sidebar).toHaveTextContent("3.38 €");
+});
+
+it.skip("should create a list with the weighed prices in the sidebar", () => {
+  render(<App />);
+
+  // Weigh the banana
+  const weightInput = screen.getByLabelText("Peso:");
+  userEvent.type(weightInput, "2");
+  // Clicks on the banana button
+  const bananaButton = screen.getByLabelText("Plátano");
+  userEvent.click(bananaButton);
+  // Clicks on the calculate button
+  const calculateButton = screen.getByText("Calcular");
+  userEvent.click(calculateButton);
+  // Weigh the watermelon
+  userEvent.clear(weightInput);
+  userEvent.type(weightInput, "4");
+  // Clicks on the watermelon button
+  const watermelonButton = screen.getByLabelText("Sandía");
+  userEvent.click(watermelonButton);
+  // Clicks on the calculate button
+  userEvent.click(calculateButton);
+
+  // Gets the sidebar
+  const sidebar = screen.getByTestId("sidebar");
+  expect(sidebar).toHaveTextContent("3.38 €");
+  expect(sidebar).toHaveTextContent("3.72 €");
+});
+
+it.skip("should display the total price of all the weighed products", () => {
+  render(<App />);
+
+  // Weigh the banana
+  const weightInput = screen.getByLabelText("Peso:");
+  userEvent.type(weightInput, "2");
+  // Clicks the banana button
+  const bananaButton = screen.getByLabelText("Plátano");
+  userEvent.click(bananaButton);
+  // Clicks on the calculate button
+  const calculateButton = screen.getByText("Calcular");
+  userEvent.click(calculateButton);
+  // Weigh the watermelon
+  userEvent.clear(weightInput);
+  userEvent.type(weightInput, "4");
+  // Clicks on the watermelon button
+  const watermelonButton = screen.getByLabelText("Sandía");
+  userEvent.click(watermelonButton);
+  // Clicks on the calculate button
+  userEvent.click(calculateButton);
+
+  // Gets the sidebar
+  const sidebar = screen.getByTestId("sidebar");
+  expect(sidebar).toHaveTextContent("3.38 €");
+  expect(sidebar).toHaveTextContent("3.72 €");
+  expect(sidebar).toHaveTextContent("Total - 7.1 €");
+});
+
+it.skip("should add the last weighed price in the sidebar", () => {
   render(<App />);
 
   // Weigh the banana
@@ -209,6 +282,7 @@ it.skip("should display the total price of all the weighed products", () => {
   // Gets the sidebar
   const sidebar = screen.getByTestId("sidebar");
   expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
+  expect(sidebar).toHaveTextContent("Sandía - 3.72 €");
   expect(sidebar).toHaveTextContent("Total - 7.1 €");
 });
 
