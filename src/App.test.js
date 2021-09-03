@@ -185,7 +185,7 @@ it.skip("should create a list with the weighed prices in the sidebar", () => {
   expect(sidebar).toHaveTextContent("3.72 €");
 });
 
-it.skip("should display the total price of all the weighed products", () => {
+it.skip("should display the total price of all the weighed prices", () => {
   render(<App />);
 
   // Weigh the banana
@@ -231,7 +231,7 @@ it.skip("should add the last weighed price in the sidebar", () => {
   expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
 });
 
-it.skip("should create a list with the weighed products in the sidebar", () => {
+it.skip("should see the product name for each weighed product in the sidebar", () => {
   render(<App />);
 
   // Weigh the banana
@@ -256,34 +256,6 @@ it.skip("should create a list with the weighed products in the sidebar", () => {
   const sidebar = screen.getByTestId("sidebar");
   expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
   expect(sidebar).toHaveTextContent("Sandía - 3.72 €");
-});
-
-it.skip("should display the total price of all the weighed products", () => {
-  render(<App />);
-
-  // Weigh the banana
-  const weightInput = screen.getByLabelText("Peso:");
-  userEvent.type(weightInput, "2");
-  // Clicks the banana button
-  const bananaButton = screen.getByLabelText("Plátano");
-  userEvent.click(bananaButton);
-  // Clicks on the calculate button
-  const calculateButton = screen.getByText("Calcular");
-  userEvent.click(calculateButton);
-  // Weigh the watermelon
-  userEvent.clear(weightInput);
-  userEvent.type(weightInput, "4");
-  // Clicks on the watermelon button
-  const watermelonButton = screen.getByLabelText("Sandía");
-  userEvent.click(watermelonButton);
-  // Clicks on the calculate button
-  userEvent.click(calculateButton);
-
-  // Gets the sidebar
-  const sidebar = screen.getByTestId("sidebar");
-  expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
-  expect(sidebar).toHaveTextContent("Sandía - 3.72 €");
-  expect(sidebar).toHaveTextContent("Total - 7.1 €");
 });
 
 it.skip("should be able to clean the purchase", () => {
