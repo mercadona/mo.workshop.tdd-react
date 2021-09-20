@@ -20,14 +20,18 @@ Hola 👋🏼 Somos el equipo de Frontend de Mercadona Tech. Nuestra intención 
 - JavaScript
 - React
 - Jest + Testing Library
-  ​
+
+### Conocimiento previo
+
+Este taller asume un conocimiento básico de HTML, CSS y JavaScript. También sería recomendable familiarizarse con React y algunos de sus conceptos básicos como [la rederización de listas](https://es.reactjs.org/docs/lists-and-keys.html), [el manejo de eventos](https://es.reactjs.org/docs/lists-and-keys.html) y [el uso de _hooks_ de estado](https://es.reactjs.org/docs/hooks-state.html). La [documentación oficial de React](https://es.reactjs.org/docs/hello-world.html) es un muy buen punto de partida.
+​
 
 ## ¿Cómo empezar?
 
 ​El ejercicio se puede hacer tanto en el navegador como en tu entorno local. Para empezar rápido y no perder tiempo instalando cosas en tu ordenador, recomendamos utilizar CodeSandbox. Si ya tienes el entorno de tu ordenador preparado para desarrollar una aplicación de React, puedes hacer un _fork_ de este repositorio.
 ​
 
-## CodeSandbox
+### Opción A (recomendada): CodeSandbox
 
 ​CodeSandbox es un editor de código online que nos permite trabajar desde nuestro navegador en un entorno con todas las tecnologías necesarias para nuestro proyecto ya instaladas. Para empezar, sigue estos pasos:
 
@@ -35,7 +39,7 @@ Hola 👋🏼 Somos el equipo de Frontend de Mercadona Tech. Nuestra intención 
 2. Accede al proyecto de este taller 👉 [Proyecto en CodeSandbox](https://codesandbox.io/s/scale-slicing-workshop-8y6co)
    ​
 
-## Local
+### Opción B: Local
 
 ​Para este proyecto necesitarás [Git](https://git-scm.com/downloads), [Node y NPM](https://nodejs.org) instalados en tu entorno local y tu editor de código favorito. Nosotres utilizamos [Visual Studio Code](https://code.visualstudio.com/).
 ​
@@ -62,4 +66,4 @@ npm start
 
 ## Cómo contribuir
 
-Si encuentras algún error o quieres sugerir una mejora, siéntete libre de crear una Pull Request o abrir un Issue.
+Si encuentras algún error o quieres sugerir una mejora, siéntete libre de crear una Pull Request o abrir un Issue en este mismo repositorio.
