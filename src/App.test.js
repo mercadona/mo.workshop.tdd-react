@@ -119,8 +119,8 @@ it.skip("should clear the input values", () => {
   render(<App />);
 
   // Weigh the banana
-  const weightInput = screen.getByLabelText("Peso:");
-  userEvent.type(weightInput, "2");
+  const weightInputField = screen.getByLabelText("Peso:");
+  userEvent.type(weightInputField, "2");
   // Clicks on the banana button
   const bananaButton = screen.getByLabelText("Plátano");
   userEvent.click(bananaButton);
@@ -131,13 +131,15 @@ it.skip("should clear the input values", () => {
   const clearButton = screen.getByText("Limpiar");
   userEvent.click(clearButton);
 
+  // Gets the weight input
+  const weightInput = screen.getByLabelText("Peso:");
+  expect(weightInput).toHaveValue(0);
   // Gets the total input
   const totalInput = screen.getByLabelText("Total:");
-  expect(weightInput).toHaveValue(0);
+  expect(totalInput).toHaveValue(0);
   // Gets the price input
   const priceInput = screen.getByLabelText("Precio:");
   expect(priceInput).toHaveValue(0);
-  expect(totalInput).toHaveValue(0);
 });
 
 it.skip("should add the last weighed price in the sidebar", () => {
@@ -213,7 +215,7 @@ it.skip("should display the total price of all the weighed prices", () => {
   expect(sidebar).toHaveTextContent("Total - 7.1 €");
 });
 
-it.skip("should add the last weighed price in the sidebar", () => {
+it.skip("should add the last weighed product and price in the sidebar", () => {
   render(<App />);
 
   // Weigh the banana
