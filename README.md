@@ -9,12 +9,12 @@ Hola 👋 Somos el equipo de Frontend de Mercadona Tech. Nuestra intención con 
 
 ​Nuestra forma de trabajar se basa principalmente en los principios de [Test Driven Development](https://www.agilealliance.org/glossary/tdd) (TDD) y [Xtreme Programming](https://www.agilealliance.org/glossary/xp) (XP). En este taller aprenderás:
 
-- Cómo escribir tests que te den confianza de que tu código funciona
-- Cómo iterar un producto añadiendo funcionalidad de forma progresiva
-- Cómo desarrollar un producto desde el punto de viste del usuario
-- Cómo colaborar de forma efectiva haciendo _pair programming_
-  ​
-  Aunque todos estos principios se puede aplicar a cualquier tecnología, nos centraremos en las tecnologías que utilizamos para desarrollar la web de Mercadona Online:
+- Cómo escribir tests que te den confianza de que tu código funciona.
+- Cómo iterar un producto añadiendo funcionalidad de forma progresiva.
+- Cómo desarrollar un producto desde el punto de viste del usuario.
+- Cómo colaborar de forma efectiva haciendo _pair programming_.
+​
+Aunque todos estos principios se puede aplicar a cualquier tecnología, nos centraremos en las tecnologías que utilizamos para desarrollar la web de Mercadona Online:
   ​
 - HTML + CSS
 - JavaScript
