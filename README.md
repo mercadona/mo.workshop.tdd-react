@@ -47,7 +47,7 @@ Una vez hayas hecho un _fork_ de este repositorio, puedes clonarlo a tu ordenado
 ​
 
 ```bash
-git clone URL git@github.com:mercadona/mo.workshop.tdd-react.git
+git clone git@github.com:mercadona/mo.workshop.tdd-react.git
 ```
 
 ​Para comenzar primero debemos instalar las dependencias del proyecto:
