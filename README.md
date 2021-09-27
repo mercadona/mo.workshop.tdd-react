@@ -2,7 +2,7 @@
 
 ## Introducción
 
-Hola 👋🏼 Somos el equipo de Frontend de Mercadona Tech. Nuestra intención con este taller es mostrar nuestra forma de trabajar para compartir conocimiento con la comunidad y poner nuestro granito de arena para mejorar la diversidad en nuestro sector.
+Hola 👋 Somos el equipo de Frontend de Mercadona Tech. Nuestra intención con este taller es mostrar nuestra forma de trabajar para compartir conocimiento con la comunidad y poner nuestro granito de arena para mejorar la diversidad en nuestro sector.
 ​
 
 ### ¿Qué aprenderás?
