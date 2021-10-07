@@ -36,7 +36,7 @@ Este taller asume un conocimiento básico de HTML, CSS y JavaScript. También se
 ​CodeSandbox es un editor de código online que nos permite trabajar desde nuestro navegador en un entorno con todas las tecnologías necesarias para nuestro proyecto ya instaladas. Para empezar, sigue estos pasos:
 
 1. Regístrate o accede a tu cuenta en [CodeSandbox](https://codesandbox.io)
-2. Accede al proyecto de este taller 👉 [Proyecto en CodeSandbox](https://codesandbox.io/s/scale-slicing-workshop-8y6co)
+2. Accede al proyecto de este taller 👉 [Proyecto en CodeSandbox](https://codesandbox.io/s/workshop-react-tdd-zp19v)
    ​
 
 ### Opción B: Local
