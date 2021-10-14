@@ -6,255 +6,255 @@ import "@testing-library/jest-dom/extend-expect";
 import { App } from "./App";
 
 
-it("should see the scale app", () => {
+it("debes ver la apicación de balanza", () => {
   render(<App />);
 
-  const weightInput = screen.getByLabelText("Peso:");
-  const priceInput = screen.getByLabelText("Precio:");
-  const totalInput = screen.getByLabelText("Total:");
-  const banana = screen.getByLabelText("Plátano");
-  const orange = screen.getByLabelText("Naranja");
-  const grape = screen.getByLabelText("Uva");
-  const watermelon = screen.getByLabelText("Sandía");
+  const inputPeso = screen.getByLabelText("Peso:");
+  const inputPrecio = screen.getByLabelText("Precio:");
+  const inputTotal = screen.getByLabelText("Total:");
+  const platano = screen.getByLabelText("Plátano");
+  const naranja = screen.getByLabelText("Naranja");
+  const uva = screen.getByLabelText("Uva");
+  const sandia = screen.getByLabelText("Sandía");
   const melon = screen.getByLabelText("Melón");
   const kiwi = screen.getByLabelText("Kiwi");
-  const earlyFig = screen.getByLabelText("Breva");
-  const avocado = screen.getByLabelText("Aguacate");
+  const breva = screen.getByLabelText("Breva");
+  const aguacate = screen.getByLabelText("Aguacate");
   const mango = screen.getByLabelText("Mango");
-  const calculateButton = screen.getByText("Calcular");
+  const botonCalcular = screen.getByText("Calcular");
   const error = screen.queryByText("Error");
 
-  expect(weightInput).toBeInTheDocument();
-  expect(priceInput).toBeInTheDocument();
-  expect(totalInput).toBeInTheDocument();
-  expect(banana).toBeInTheDocument();
-  expect(orange).toBeInTheDocument();
-  expect(grape).toBeInTheDocument();
-  expect(watermelon).toBeInTheDocument();
+  expect(inputPeso).toBeInTheDocument();
+  expect(inputPrecio).toBeInTheDocument();
+  expect(inputTotal).toBeInTheDocument();
+  expect(platano).toBeInTheDocument();
+  expect(naranja).toBeInTheDocument();
+  expect(uva).toBeInTheDocument();
+  expect(sandia).toBeInTheDocument();
   expect(melon).toBeInTheDocument();
   expect(kiwi).toBeInTheDocument();
-  expect(earlyFig).toBeInTheDocument();
-  expect(avocado).toBeInTheDocument();
+  expect(breva).toBeInTheDocument();
+  expect(aguacate).toBeInTheDocument();
   expect(mango).toBeInTheDocument();
-  expect(calculateButton).toBeInTheDocument();
+  expect(botonCalcular).toBeInTheDocument();
   expect(error).not.toBeInTheDocument();
 });
 
-it("should be able to introduce a weight", () => {
+it("debes poder introducir un pesaje", () => {
   render(<App />);
 
-  // Weigh a fruit
-  const weightInput = screen.getByLabelText("Peso:");
-  userEvent.type(weightInput, "2");
+  // Pesar una fruta
+  const inputPeso = screen.getByLabelText("Peso:");
+  userEvent.type(inputPeso, "2");
 
-  expect(weightInput).toHaveValue(2);
+  expect(inputPeso).toHaveValue(2);
 });
 
-it.skip("should be able to select a fruit and see its price", () => {
+it.skip("deber poder seleccionar una fruta y ver su peso", () => {
   render(<App />);
 
-  // Clicks on the watermelon button
-  const watermelonButton = screen.getByLabelText("Sandía");
-  userEvent.click(watermelonButton);
+  // Hacer click en el botón de la sandía
+  const sandiaButton = screen.getByLabelText("Sandía");
+  userEvent.click(sandiaButton);
 
-  // Gets the price input
-  const priceInput = screen.getByLabelText("Precio:");
-  expect(priceInput).toHaveValue(0.93);
+  // Coger el precio del input
+  const inputPrecio = screen.getByLabelText("Precio:");
+  expect(inputPrecio).toHaveValue(0.93);
 });
 
-it.skip("should calculate the total", () => {
+it.skip("debes poder calcular el total", () => {
   render(<App />);
 
-  // Weigh the banana
-  const weightInput = screen.getByLabelText("Peso:");
-  userEvent.type(weightInput, "2");
-  // Clicks on the banana button
-  const bananaButton = screen.getByLabelText("Plátano");
-  userEvent.click(bananaButton);
-  // Clicks on the calculate button
-  const calculateButton = screen.getByText("Calcular");
-  userEvent.click(calculateButton);
+  // Pesar el plátano
+  const inputPeso = screen.getByLabelText("Peso:");
+  userEvent.type(inputPeso, "2");
+  // Hacer click en el botón del plátano
+  const platanoButton = screen.getByLabelText("Plátano");
+  userEvent.click(platanoButton);
+  // Hacer click en el botón de calcular el precio
+  const botonCalcular = screen.getByText("Calcular");
+  userEvent.click(botonCalcular);
 
-  // Gets the total input
-  const totalInput = screen.getByLabelText("Total:");
-  expect(totalInput).toHaveValue(3.38);
+  // Coger el total del input
+  const inputTotal = screen.getByLabelText("Total:");
+  expect(inputTotal).toHaveValue(3.38);
 });
 
-it.skip("should see an error when you calculate the total without the price", () => {
+it.skip("debes ver un error cuando calculas el total sin el precio", () => {
   render(<App />);
 
-  // Weigh the banana
-  const weightInput = screen.getByLabelText("Peso:");
-  userEvent.type(weightInput, "2");
-  // Clicks on the calculate button
+  // Pesar el plátano
+  const inputPeso = screen.getByLabelText("Peso:");
+  userEvent.type(inputPeso, "2");
+  // Hacer click en el botón de calcular
   userEvent.click(screen.getByText("Calcular"));
 
   expect(screen.getByText("Error")).toBeInTheDocument();
 });
 
-it.skip("should clear the error when select a fruit", () => {
+it.skip("debes eliminar el error cuando seleccionas una fruta", () => {
   render(<App />);
 
-  // Clicks on the calculate button
+  // Hacer click en el botón de calcular
   userEvent.click(screen.getByText("Calcular"));
-  // Clicks on the watermelon button
+  // Hacer click en el botón de la sandía
   userEvent.click(screen.getByLabelText("Sandía"));
 
   expect(screen.queryByText("Error")).not.toBeInTheDocument();
 });
 
-it.skip("should see an error if there is not weight", () => {
+it.skip("deber ver un error si no hay peso", () => {
   render(<App />);
 
-  // Clicks on the banana button
-  const bananaButton = screen.getByLabelText("Plátano");
-  userEvent.click(bananaButton);
-  // Clicks on the calculate button
+  // Hacer click en el botón del plátano
+  const platanoButton = screen.getByLabelText("Plátano");
+  userEvent.click(platanoButton);
+  // Hacer click en el botón de calcular
   userEvent.click(screen.getByText("Calcular"));
 
   expect(screen.getByText("Error")).toBeInTheDocument();
 });
 
-it.skip("should clear the input values", () => {
+it.skip("debes poder borrar los inputs", () => {
   render(<App />);
 
-  // Weigh the banana
-  const weightInputField = screen.getByLabelText("Peso:");
-  userEvent.type(weightInputField, "2");
-  // Clicks on the banana button
-  const bananaButton = screen.getByLabelText("Plátano");
-  userEvent.click(bananaButton);
-  // Clicks on the calculate button
-  const calculateButton = screen.getByText("Calcular");
-  userEvent.click(calculateButton);
-  // Clicks on the clean button
+  // Pesar el plátano
+  const inputPesoField = screen.getByLabelText("Peso:");
+  userEvent.type(inputPesoField, "2");
+  // Hacer click en el botón del plátano
+  const platanoButton = screen.getByLabelText("Plátano");
+  userEvent.click(platanoButton);
+  // Hacer click en el botón de calcular
+  const botonCalcular = screen.getByText("Calcular");
+  userEvent.click(botonCalcular);
+  // Hacer click en el botón de limpiar
   const clearButton = screen.getByText("Limpiar");
   userEvent.click(clearButton);
 
-  // Gets the weight input
-  const weightInput = screen.getByLabelText("Peso:");
-  expect(weightInput).toHaveValue(0);
-  // Gets the total input
-  const totalInput = screen.getByLabelText("Total:");
-  expect(totalInput).toHaveValue(0);
-  // Gets the price input
-  const priceInput = screen.getByLabelText("Precio:");
-  expect(priceInput).toHaveValue(0);
+  // Coger el peso del input
+  const inputPeso = screen.getByLabelText("Peso:");
+  expect(inputPeso).toHaveValue(0);
+  // Coger el total del input
+  const inputTotal = screen.getByLabelText("Total:");
+  expect(inputTotal).toHaveValue(0);
+  // Coger el precio del input
+  const inputPrecio = screen.getByLabelText("Precio:");
+  expect(inputPrecio).toHaveValue(0);
 });
 
-it.skip("should add the last weighed price in the sidebar", () => {
+it.skip("debes poder añadir el último precio pesado al sidebar", () => {
   render(<App />);
 
-  // Weigh the banana
-  const weightInput = screen.getByLabelText("Peso:");
-  userEvent.type(weightInput, "2");
-  // Clicks on the banana button
-  const bananaButton = screen.getByLabelText("Plátano");
-  userEvent.click(bananaButton);
-  // Clicks on the calculate button
-  const calculateButton = screen.getByText("Calcular");
-  userEvent.click(calculateButton);
+  // Pesar el plátano
+  const inputPeso = screen.getByLabelText("Peso:");
+  userEvent.type(inputPeso, "2");
+  // Hacer click en el botón del plátano
+  const platanoButton = screen.getByLabelText("Plátano");
+  userEvent.click(platanoButton);
+  // Hacer click en el botón de calcular
+  const botonCalcular = screen.getByText("Calcular");
+  userEvent.click(botonCalcular);
 
-  // Gets the sidebar
+  // Coger el sidebar
   const sidebar = screen.getByTestId("sidebar");
   expect(sidebar).toHaveTextContent("3.38 €");
 });
 
-it.skip("should create a list with the weighed prices in the sidebar", () => {
+it.skip("debes poder crear una lista de precio de los pesajes en el sidebar", () => {
   render(<App />);
 
-  // Weigh the banana
-  const weightInput = screen.getByLabelText("Peso:");
-  userEvent.type(weightInput, "2");
-  // Clicks on the banana button
-  const bananaButton = screen.getByLabelText("Plátano");
-  userEvent.click(bananaButton);
-  // Clicks on the calculate button
-  const calculateButton = screen.getByText("Calcular");
-  userEvent.click(calculateButton);
-  // Weigh the watermelon
-  userEvent.clear(weightInput);
-  userEvent.type(weightInput, "4");
-  // Clicks on the watermelon button
-  const watermelonButton = screen.getByLabelText("Sandía");
-  userEvent.click(watermelonButton);
-  // Clicks on the calculate button
-  userEvent.click(calculateButton);
+  // Pesar el plátano
+  const inputPeso = screen.getByLabelText("Peso:");
+  userEvent.type(inputPeso, "2");
+  // Hacer click en el botón del plátano
+  const platanoButton = screen.getByLabelText("Plátano");
+  userEvent.click(platanoButton);
+  // Hacer click en el botón de calcular
+  const botonCalcular = screen.getByText("Calcular");
+  userEvent.click(botonCalcular);
+  // Pesar la sandía
+  userEvent.clear(inputPeso);
+  userEvent.type(inputPeso, "4");
+  // Hacer click en el botón de la sandía
+  const sandiaButton = screen.getByLabelText("Sandía");
+  userEvent.click(sandiaButton);
+  // Hacer click en el botón de calcular
+  userEvent.click(botonCalcular);
 
-  // Gets the sidebar
+  // Coger el sidebar
   const sidebar = screen.getByTestId("sidebar");
   expect(sidebar).toHaveTextContent("3.38 €");
   expect(sidebar).toHaveTextContent("3.72 €");
 });
 
-it.skip("should display the total price of all the weighed prices", () => {
+it.skip("debes poder ver el precio total de todos los pesajes", () => {
   render(<App />);
 
-  // Weigh the banana
-  const weightInput = screen.getByLabelText("Peso:");
-  userEvent.type(weightInput, "2");
-  // Clicks the banana button
-  const bananaButton = screen.getByLabelText("Plátano");
-  userEvent.click(bananaButton);
-  // Clicks on the calculate button
-  const calculateButton = screen.getByText("Calcular");
-  userEvent.click(calculateButton);
-  // Weigh the watermelon
-  userEvent.clear(weightInput);
-  userEvent.type(weightInput, "4");
-  // Clicks on the watermelon button
-  const watermelonButton = screen.getByLabelText("Sandía");
-  userEvent.click(watermelonButton);
-  // Clicks on the calculate button
-  userEvent.click(calculateButton);
+  // Pesar el plátano
+  const inputPeso = screen.getByLabelText("Peso:");
+  userEvent.type(inputPeso, "2");
+  // Clicks the platano button
+  const platanoButton = screen.getByLabelText("Plátano");
+  userEvent.click(platanoButton);
+  // Hacer click en el botón de calcular
+  const botonCalcular = screen.getByText("Calcular");
+  userEvent.click(botonCalcular);
+  // Pesar la sandía
+  userEvent.clear(inputPeso);
+  userEvent.type(inputPeso, "4");
+  // Hacer click en el botón de la sandía
+  const sandiaButton = screen.getByLabelText("Sandía");
+  userEvent.click(sandiaButton);
+  // Hacer click en el botón de calcular
+  userEvent.click(botonCalcular);
 
-  // Gets the sidebar
+  // Coger el sidebar
   const sidebar = screen.getByTestId("sidebar");
   expect(sidebar).toHaveTextContent("3.38 €");
   expect(sidebar).toHaveTextContent("3.72 €");
   expect(sidebar).toHaveTextContent("Total - 7.1 €");
 });
 
-it.skip("should add the last weighed product and price in the sidebar", () => {
+it.skip("debes poder añadir el último producto pesado y el precio al sidebar", () => {
   render(<App />);
 
-  // Weigh the banana
-  const weightInput = screen.getByLabelText("Peso:");
-  userEvent.type(weightInput, "2");
-  // Clicks on the banana button
-  const bananaButton = screen.getByLabelText("Plátano");
-  userEvent.click(bananaButton);
-  // Clicks on the calculate button
-  const calculateButton = screen.getByText("Calcular");
-  userEvent.click(calculateButton);
+  // Pesar el plátano
+  const inputPeso = screen.getByLabelText("Peso:");
+  userEvent.type(inputPeso, "2");
+  // Hacer click en el botón del plátano
+  const platanoButton = screen.getByLabelText("Plátano");
+  userEvent.click(platanoButton);
+  // Hacer click en el botón de calcular
+  const botonCalcular = screen.getByText("Calcular");
+  userEvent.click(botonCalcular);
 
-  // Gets the sidebar
+  // Coger el sidebar
   const sidebar = screen.getByTestId("sidebar");
   expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
 });
 
-it.skip("should see the product name for each weighed product in the sidebar", () => {
+it.skip("debes poder ver el nombre de producto por cada producto pesado en el sidebar", () => {
   render(<App />);
 
-  // Weigh the banana
-  const weightInput = screen.getByLabelText("Peso:");
-  userEvent.type(weightInput, "2");
-  // Clicks on the banana button
-  const bananaButton = screen.getByLabelText("Plátano");
-  userEvent.click(bananaButton);
-  // Clicks on the calculate button
-  const calculateButton = screen.getByText("Calcular");
-  userEvent.click(calculateButton);
-  // Weigh the watermelon
-  userEvent.clear(weightInput);
-  userEvent.type(weightInput, "4");
-  // Clicks on the watermelon button
-  const watermelonButton = screen.getByLabelText("Sandía");
-  userEvent.click(watermelonButton);
-  // Clicks on the calculate button
-  userEvent.click(calculateButton);
+  // Pesar el plátano
+  const inputPeso = screen.getByLabelText("Peso:");
+  userEvent.type(inputPeso, "2");
+  // Hacer click en el botón del plátano
+  const platanoButton = screen.getByLabelText("Plátano");
+  userEvent.click(platanoButton);
+  // Hacer click en el botón de calcular
+  const botonCalcular = screen.getByText("Calcular");
+  userEvent.click(botonCalcular);
+  // Pesar la sandía
+  userEvent.clear(inputPeso);
+  userEvent.type(inputPeso, "4");
+  // Hacer click en el botón de la sandía
+  const sandiaButton = screen.getByLabelText("Sandía");
+  userEvent.click(sandiaButton);
+  // Hacer click en el botón de calcular
+  userEvent.click(botonCalcular);
 
-  // Gets the sidebar
+  // Coger el sidebar
   const sidebar = screen.getByTestId("sidebar");
   expect(sidebar).toHaveTextContent("Plátano - 3.38 €");
   expect(sidebar).toHaveTextContent("Sandía - 3.72 €");

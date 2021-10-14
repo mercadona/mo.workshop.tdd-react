@@ -1,15 +1,15 @@
 import { useState } from "react";
-import products from "./products.json";
+import productos from "./products.json";
 
-const EMPTY = 0;
-const NO_ERROR = false;
+const VACIO = 0;
+const SIN_ERROR = false;
 
 const App = () => {
-  const [error, setError] = useState(NO_ERROR);
-  const [weight, setWeight] = useState(EMPTY);
+  const [error, setearError] = useState(SIN_ERROR);
+  const [peso, setearPeso] = useState(VACIO);
 
-  function handleWeightChange(event) {
-    setWeight(event.target.value);
+  function manejarCambioDePeso(event) {
+    setearPeso(event.target.value);
   }
 
   return (
@@ -22,8 +22,8 @@ const App = () => {
             step="any"
             min="0"
             placeholder="0,000"
-            value={weight}
-            onChange={handleWeightChange}
+            value={peso}
+            onChange={manejarCambioDePeso}
           />
         </label>
         <label>
@@ -35,7 +35,7 @@ const App = () => {
             placeholder="0,000"
             readOnly={true}
             disabled={true}
-            value={EMPTY}
+            value={VACIO}
           />
         </label>
         <label>
@@ -45,10 +45,10 @@ const App = () => {
       </div>
       <div className="controls">
         <div className="products">
-          {products.map((product) => {
+          {productos.map((producto) => {
             return (
-              <button key={product.id} aria-label={product.name} value={product.price}>
-                <img src={product.image} alt="" />
+              <button key={product.id} aria-label={product.nombre} value={product.precio}>
+                <img src={product.imagen} alt="" />
               </button>
             );
           })}
