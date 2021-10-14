@@ -40,7 +40,7 @@ it("debes ver la apicación de balanza", () => {
   expect(error).not.toBeInTheDocument();
 });
 
-it("debes poder introducir un pesaje", () => {
+it.skip("debes poder introducir un pesaje", () => {
   render(<App />);
 
   // Pesar una fruta
@@ -260,14 +260,14 @@ it.skip("debes poder ver el nombre de producto por cada producto pesado en el si
   expect(sidebar).toHaveTextContent("Sandía - 3.72 €");
 });
 
-it.skip("should identify the type of the error", () => {});
+it.skip("debes identificar el tipo de error", () => {});
 
-it.skip("should be able to clean the list", () => {});
+it.skip("debes poder borrar la lista", () => {});
 
-it.skip("should be able to remove a product from the list", () => {});
+it.skip("debes poder borrar un elemento de la lista", () => {});
 
-describe("Regression tests", () => {
-  it.skip("should not add a product to the list if there is an error", () => {});
+describe("Tests de regresión", () => {
+  it.skip("no debe añadir un producto a la lista si hay un error", () => {});
 
-  it.skip("should see the prices with maximum two decimals", () => {});
+  it.skip("debes ver los precios con un máximo de dos decimales", () => {});
 });
