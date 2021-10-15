@@ -118,8 +118,8 @@ it.skip("should clear the input values", () => {
   render(<App />);
 
   // Weigh the banana
-  const weightInputt = screen.getByLabelText("Peso:");
-  userEvent.type(weightInputt, "2");
+  const weightInputField = screen.getByLabelText("Peso:");
+  userEvent.type(weightInputField, "2");
   // Clicks on the banana button
   const bananaButton = screen.getByLabelText("Plátano");
   userEvent.click(bananaButton);
