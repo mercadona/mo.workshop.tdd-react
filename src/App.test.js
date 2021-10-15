@@ -5,7 +5,6 @@ import "@testing-library/jest-dom/extend-expect";
 
 import { App } from "./App";
 
-
 it("should see the scale app", () => {
   render(<App />);
 
@@ -134,12 +133,12 @@ it.skip("should clear the input values", () => {
   // Gets the weight input
   const weightInput = screen.getByLabelText("Peso:");
   expect(weightInput).toHaveValue(0);
-  // Gets the total input
-  const totalInput = screen.getByLabelText("Total:");
-  expect(totalInput).toHaveValue(0);
   // Gets the price input
   const priceInput = screen.getByLabelText("Precio:");
   expect(priceInput).toHaveValue(0);
+  // Gets the total input
+  const totalInput = screen.getByLabelText("Total:");
+  expect(totalInput).toHaveValue(0);
 });
 
 it.skip("should add the last weighed price in the sidebar", () => {
@@ -260,6 +259,14 @@ it.skip("should see the product name for each weighed product in the sidebar", (
   expect(sidebar).toHaveTextContent("Sandía - 3.72 €");
 });
 
-it.skip("should be able to clean the purchase", () => {
+it.skip("should identify the type of the error", () => {});
 
+it.skip("should be able to clean the list", () => {});
+
+it.skip("should be able to remove a product from the list", () => {});
+
+describe("Regression tests", () => {
+  it.skip("should not add a product to the list if there is an error");
+
+  it.skip("should see the prices with maximum two decimals");
 });
