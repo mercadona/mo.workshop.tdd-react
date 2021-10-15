@@ -260,6 +260,14 @@ it.skip("debes poder ver el nombre de producto por cada producto pesado en el si
   expect(sidebar).toHaveTextContent("Sandía - 3.72 €");
 });
 
-it.skip("should be able to clean the purchase", () => {
+it.skip("should identify the type of the error", () => {});
 
+it.skip("should be able to clean the list", () => {});
+
+it.skip("should be able to remove a product from the list", () => {});
+
+describe("Regression tests", () => {
+  it.skip("should not add a product to the list if there is an error", () => {});
+
+  it.skip("should see the prices with maximum two decimals", () => {});
 });

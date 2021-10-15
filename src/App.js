@@ -47,8 +47,8 @@ const App = () => {
         <div className="products">
           {productos.map((producto) => {
             return (
-              <button key={product.id} aria-label={product.nombre} value={product.precio}>
-                <img src={product.imagen} alt="" />
+              <button key={producto.id} aria-label={producto.nombre} value={producto.precio}>
+                <img src={producto.imagen} alt="" />
               </button>
             );
           })}
