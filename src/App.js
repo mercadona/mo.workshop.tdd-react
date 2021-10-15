@@ -6,11 +6,6 @@ const NO_ERROR = false;
 
 const App = () => {
   const [error, setError] = useState(NO_ERROR);
-  const [weight, setWeight] = useState(EMPTY);
-
-  function handleWeightChange(event) {
-    setWeight(event.target.value);
-  }
 
   return (
     <div className="app">
@@ -22,8 +17,7 @@ const App = () => {
             step="any"
             min="0"
             placeholder="0,000"
-            value={weight}
-            onChange={handleWeightChange}
+            value={EMPTY}
           />
         </label>
         <label>
