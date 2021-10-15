@@ -39,7 +39,7 @@ it("should see the scale app", () => {
   expect(error).not.toBeInTheDocument();
 });
 
-it("should be able to introduce a weight", () => {
+it.skip("should be able to introduce a weight", () => {
   render(<App />);
 
   // Weigh a fruit
