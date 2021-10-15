@@ -6,11 +6,6 @@ const SIN_ERROR = false;
 
 const App = () => {
   const [error, setearError] = useState(SIN_ERROR);
-  const [peso, setearPeso] = useState(VACIO);
-
-  function manejarCambioDePeso(event) {
-    setearPeso(event.target.value);
-  }
 
   return (
     <div className="app">
@@ -22,8 +17,7 @@ const App = () => {
             step="any"
             min="0"
             placeholder="0,000"
-            value={peso}
-            onChange={manejarCambioDePeso}
+            value={VACIO}
           />
         </label>
         <label>
